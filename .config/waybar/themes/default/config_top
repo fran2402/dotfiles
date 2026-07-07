@@ -1,0 +1,30 @@
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 5,
+    "margin-bottom": 0,
+    "margin-left": -20,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/themes/default/modules.json"
+    ],
+    
+    "modules-left": [
+      "hyprland/window"
+    ],
+
+    // Modules Center
+
+    // Modules Right    
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery", 
+        "clock"
+    ],
+}
+

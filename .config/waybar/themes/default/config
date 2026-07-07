@@ -1,0 +1,38 @@
+{
+    // General Settings
+    "layer": "top",
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/themes/default/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "custom/archlogo",
+        "hyprland/workspaces"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "custom/skip-back",
+        "custom/lizzy",
+        "custom/skip-forward",
+        "custom/lizzy-text" // Move cava here for overlay positioning
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "pulseaudio",
+        "group/hardware",
+        "network",
+        "battery", 
+        "clock"
+    ],
+}
+

@@ -1,0 +1,29 @@
+{
+    // General Settings
+    "position": "left",
+    "layer": "left",
+    "margin-top": 40,
+    "margin-bottom": 5,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/themes/default/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+      //  "custom/archlogo",
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+      "custom/lock",
+      "custom/restart",
+      "custom/shutdown"
+    ],
+}
+

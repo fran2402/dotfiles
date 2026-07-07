@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+STATE=$(playerctl status 2>/dev/null)
+
+LAST_FILE="/tmp/waybar-music-paused"
+
+if [[ "$STATE" == "Playing" ]]; then
+    rm -f "$LAST_FILE"
+
+    TITLE=$(playerctl metadata title 2>/dev/null)
+    ARTIST=$(playerctl metadata artist 2>/dev/null)
+
+    echo "{\"text\":\"$TITLE: $ARTIST\",\"alt\":\"Playing\",\"class\":\"Playing\"}"
+    exit
+fi
+
+if [[ "$STATE" == "Paused" ]]; then
+    if [[ ! -f "$LAST_FILE" ]]; then
+        date +%s > "$LAST_FILE"
+    fi
+
+    PAUSED_AT=$(cat "$LAST_FILE")
+    NOW=$(date +%s)
+
+    if (( NOW - PAUSED_AT < 15 )); then
+        TITLE=$(playerctl metadata title 2>/dev/null)
+        ARTIST=$(playerctl metadata artist 2>/dev/null)
+
+        echo "{\"text\":\"$TITLE: $ARTIST\",\"alt\":\"Paused\",\"class\":\"Paused\"}"
+    else
+        echo '{"text":"","alt":"","class":"Empty"}'
+    fi
+
+    exit
+fi
+
+rm -f "$LAST_FILE"
+echo '{"text":"","alt":"","class":"Empty"}'

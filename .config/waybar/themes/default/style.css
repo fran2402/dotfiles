@@ -1,0 +1,479 @@
+/* -----------------------------------------------------
+ * Import Pywal colors 
+ * ----------------------------------------------------- */
+/* @import 'style-light.css'; */
+@define-color backgroundlight alpha(#CCCCCC, 0.0);
+@define-color backgrounddark alpha(#CCCCCC, 0.0);
+@define-color workspacesbackground1 #CCCCCC; 
+@define-color workspacesbackground2 alpha(#CCCCCC, 0);
+@define-color bordercolor rgba(0,0,0,0); 
+@define-color textcolor1 #CCCCCC;
+@define-color textcolor2 #CCCCCC;
+@define-color textcolor3 #777777;
+@define-color iconcolor #CCCCCC;
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+* {
+    font-family: "Maple Mono NF CN SemiBold", "Maple Mono NF CN SemiBold", FontAwesome,  Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+#waybar {
+    background-color: rgba(0,0,0,0); /* Transparent white for the glass effect */
+    /*background-image: linear-gradient(#272C33, #272C33); Simulating a frosted effect */
+    border-bottom: 0px solid #ffffff;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px; /* Optional for rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0); /* Optional subtle shadow for depth */
+}
+
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+/* Workspaces container */
+#workspaces {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor3;
+
+    margin: 0px 0px 0px 0px;
+    padding: 5px 8px;
+
+    border-radius: 7px;
+    border: 0px solid rgba(70, 76, 84, 0);
+    transition: border-color 0.2s ease-out;
+
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Workspaces hover (matches modules) */
+#workspaces:hover {
+    border: 0px solid rgba(149, 155, 164, 0);
+    transition: border-color 0.5s ease;
+}
+
+/* Workspace buttons */
+#workspaces button {
+    padding: 0px 6px;
+    margin: 0px 2px;
+
+    border-radius: 0px;
+    border: 0px;
+
+    color: rgba(149, 155, 164, 0.67);
+    background: transparent;
+}
+
+
+/* Active workspace */
+#workspaces button.active {
+    color: @textcolor1;
+    border-radius: 3px;
+    min-width: 13px;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 10px;
+    background-color: @backgroundlight;
+    opacity:0.8;
+    padding:20px;
+    margin:0px;
+}
+
+tooltip label {
+    color: @textcolor2;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    background: @backgroundlight;
+    margin: 0px 25px 10px 0px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 12px;
+    color:@textcolor2;
+    font-size:13px;
+    font-weight:normal;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+#window {
+    background: @backgroundlight;
+    margin: 8px 12px 8px 0px; /* Reduced margin */
+    padding: 1px 8px 0px 8px; /* Reduced padding */
+    border-radius: 20px; /* Slightly smaller radius */
+    color:@textcolor2;
+    font-size: 15px; /* Reduced font size */
+    font-weight: normal;
+}
+
+#taskbar button {
+    margin:0;
+    border-radius: 15px;
+    padding: 0px 5px 0px 5px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+#custom-brave, 
+#custom-browser, 
+#custom-keybindings, 
+#custom-outlook, 
+#custom-filemanager, 
+#custom-teams, 
+#custom-chatgpt, 
+#custom-calculator, 
+#custom-windowsvm, 
+#custom-cliphist, 
+#custom-settings, 
+#custom-wallpaper, 
+#custom-system,
+#custom-hyprshade,
+#custom-hypridle,
+#custom-quicklink1,
+#custom-quicklink2,
+#custom-quicklink3,
+#custom-quicklink4,
+#custom-quicklink5,
+#custom-quicklink6,
+#custom-quicklink7,
+#custom-quicklink8,
+#custom-quicklink9,
+#custom-quicklink10,
+#custom-waybarthemes {
+    margin-right: 23px;
+    font-size: 13px;
+    font-weight: bold;
+    color: @iconcolor;
+}
+ 
+#custom-hyprshade {
+    margin-right:12px;
+}
+
+#custom-hypridle {
+    margin-right:16px;
+}
+
+#custom-hypridle.active {
+    color: @iconcolor;
+}
+
+#custom-hypridle.notactive {
+    color: #dc2f2f;
+}
+
+#custom-waybarthemes,#custom-system {
+     margin-right:15px;
+}
+
+#custom-ml4w-welcome {
+    margin-right: 12px;
+    background-image: url("../assets/ml4w-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    padding-right: 24px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+ #idle_inhibitor {
+    margin-right: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
+}
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+    background-color: @backgrounddark;
+    font-size: 16px;
+    color: @textcolor1;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 10px;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 20px 0px 0px;
+    padding:0px;
+    font-size:13px;
+    color: @iconcolor;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 15px 10px 0px;
+}
+
+#custom-updates.green {
+    background-color: @backgroundlight;
+}
+
+#custom-updates.yellow {
+    background-color: #ff9a3c;
+    color: #FFFFFF;
+}
+
+#custom-updates.red {
+    background-color: #dc2f2f;
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+ #disk,#memory,#cpu,#language {
+    margin:0px;
+    padding:0px;
+    font-size:13px;
+    color:@iconcolor;
+}
+
+#language {
+    margin-right:10px;
+}
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
+
+ #backlight {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 15px 10px 0px;
+}
+
+#custom-lizzy-text {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2; 
+    border-top-right-radius: 15px; /* Rounded edge on the right */
+    border-bottom-right-radius: 15px; /* Rounded edge on the right */
+    padding: 2px 10px 0px 10px; /* Adjust padding */
+    margin: 0px 15px 10px 0px; /* Margin around the pill */
+}
+
+#custom-skip-back {
+    background-color: @backgroundlight; /* Same background as Lizzy */
+    color: @textcolor2;
+    font-size: 13px;
+    border-top-left-radius: 15px; /* Rounded edge on the left */
+    border-bottom-left-radius: 15px; /* Rounded edge on the left */
+    border-right: none; /* Remove the right border */
+    margin: 0px 0px 10px 0px; /* Remove margin to avoid spacing issues */
+    padding: 2px 5px 0px 10px; /* Adjust padding */
+}
+
+#custom-skip-forward, #custom-lizzy {
+    background-color: @backgroundlight; /* Same background as Lizzy */
+    font-size: 13px;
+    color: @textcolor2;
+    border-left: none; /* Remove the left border */
+    margin: 0px 0px 10px 0px; /* Remove margin to avoid spacing issues */
+    padding: 2px 5px 0px 10px; /* Adjust padding */
+}
+
+
+
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#custom-cava, #custom-lock, #custom-shutdown, #custom-restart, #window, #network, #battery, #pulseaudio, #custom-archlogo, #hardware {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2;
+    border-radius: 7px;
+
+    padding: 5px 10px;  /* more space around text */
+    margin: 0px 3px 5px 5px;
+
+    border: 2px solid rgba(70, 76, 84, 0);
+    transition: border-color 0.2s ease-out;
+}
+
+#custom-archlogo {
+    background-color: @backgroundlight;
+    font-size: 18px;
+    color: @textcolor2;
+    border-radius: 7px;
+
+    padding: 2px 12px;  /* more space around text */
+    margin: 10px 3px 5px 5px;
+
+    border: 2px solid rgba(70, 76, 84, 0.47);
+    transition: border-color 0.2s ease-out;
+}
+
+#pulseaudio.muted {
+    background-color: @backgrounddark;
+    color: @textcolor1;
+}
+
+#clock{
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2;
+    border-radius: 7px;
+
+    padding: 3px 10px;  /* more space around text */
+    margin: 0px 15px 5px 5px;
+
+    border: 2px solid rgba(70, 76, 84, 0);
+    transition: border-color 0.2s ease-out;
+}
+
+#network:hover, #battery:hover, #pulseaudio:hover, #custom-archlogo:hover, #clock:hover, #hardware:hover {
+    border: 2px solid rgba(149, 155, 164, 0);
+    transition: border-color 0.5s ease;
+}
+
+#network.ethernet {
+    background-color: @backgroundlight;
+    color: @textcolor2;
+}
+
+#network.wifi {
+    background-color: @backgroundlight;
+    color: @textcolor2;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+ #bluetooth, #bluetooth.on, #bluetooth.connected, #bluetooth.off {
+    background-color: @backgroundlight;
+    font-size: 13px;
+    color: @textcolor2;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 15px 10px 0px;
+}
+
+#custom-waybar-media.paused {
+    color: grey;
+}
+
+
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: @textcolor3;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    margin:0px 10px 0px 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+/* -----------------------------------------------------
+ * Other
+ * ----------------------------------------------------- */
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+
+
+
