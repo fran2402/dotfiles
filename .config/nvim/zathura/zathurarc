@@ -1,0 +1,7 @@
+set recolor false
+set recolor-darkcolor #272C33
+set recolor-lightcolor #272C33
+
+set guioptions none
+
+set selection-clipboard clipboard
